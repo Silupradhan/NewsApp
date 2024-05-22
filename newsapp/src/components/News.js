@@ -55,19 +55,8 @@ export class News extends Component {
       "publishedAt": "2024-05-08T13:02:12Z",
       "content": "Weve all seen them. The inspector with a clipboard, walking around a building, ticking off the last time the fire extinguishers were checked, or if all the lights are working. They work in the TICC (… [+3279 chars]"
     },
-    {
-      "source": {
-        "id": "politico",
-        "name": "Politico"
-      },
-      "author": null,
-      "title": "‘The last mile is harder’: Stubborn inflation stalls Fed rate cuts",
-      "description": "The concern is that higher rates are putting pressure on households and businesses looking to borrow, weighing on hiring, investment and the housing market.",
-      "url": "https://www.politico.com/news/2024/03/29/the-last-mile-is-harder-stubborn-inflation-stalls-rate-cuts-00149718",
-      "urlToImage": null,
-      "publishedAt": "2024-03-29T14:35:08+00:00",
-      "content": "The concern is that higher rates are putting pressure on households and businesses looking to borrow, weighing on hiring, investment and the housing market."
-    },
+    
+      
     {
       "source": {
         "id": "australian-financial-review",
@@ -109,12 +98,12 @@ export class News extends Component {
     }
   ]
 
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      articles : this.articles,
+      articles: this.articles,
       // loading :false
-      
+
     }
 
   }
@@ -124,15 +113,14 @@ export class News extends Component {
         <div className='container my-3'>
           <h2>DailyNews-Top Headline</h2>
           <div className='row'>
-            <div className='col-md-4'>
-            <NewsItem title="News Title" description="News Description" ImageUrl="https://thehill.com/wp-content/uploads/sites/2/2024/05/AP24141752784539.jpg?w=1280"/>
-            </div>
-            <div className='col-md-4'>
-            <NewsItem title="News Title" description="News Description"/>
-            </div>
-            <div className='col-md-4'>
-            <NewsItem title="News Title" description="News Description"/>
-            </div>
+            {this.state.articles.map((element) => {
+              // console.log(element)   // return object from api
+              return <div className='col-md-4' key={element.url}>
+                <NewsItem title={element.title.slice(0, 40)} description={element.description.slice(0, 70)} ImageUrl={element.urlToImage} newsUrl={element.url} />
+              </div>
+            })}
+
+
           </div>
         </div>
       </div>
