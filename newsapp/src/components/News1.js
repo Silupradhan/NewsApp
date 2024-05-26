@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import NewsItem from './NewsItem'
+import NewsItem1 from './NewsItem1'
 import { Spinner } from './Spinner';
 
-export class News extends Component {
+export class News1 extends Component {
 
   constructor() {
     super();
@@ -85,7 +85,7 @@ export class News extends Component {
             {!this.state.loading && this.state.articles.map((element) => {  {/* this.state.loading is false then remove all the NewsItem*/ }
               // console.log(element)   // return object from api
               return <div className='col-md-4' key={element.url}>
-                <NewsItem title={element.title ? element.title.slice(0, 40) : ""} description={element.description ? element.description.slice(0, 70) : ""} ImageUrl={element.urlToImage} newsUrl={element.url} />
+                <NewsItem1 title={element.title ? element.title.slice(0, 40) : ""} description={element.description ? element.description.slice(0, 70) : ""} ImageUrl={element.urlToImage} newsUrl={element.url} />
               </div>
             })}
           </div>
@@ -99,4 +99,4 @@ export class News extends Component {
   }
 }
 
-export default News
+export default News1
