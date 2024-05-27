@@ -101,7 +101,7 @@ export class News1 extends Component {
               /* this.state.loading is false then remove all the NewsItem*/ 
               // console.log(element)   // return object from api
               return <div className='col-md-4' key={element.url}>
-                <NewsItem1 title={element.title ? element.title.slice(0, 40) : ""} description={element.description ? element.description.slice(0, 70) : ""} ImageUrl={element.urlToImage} newsUrl={element.url} />
+                <NewsItem1 title={element.title ? element.title.slice(0, 40) : ""} description={element.description ? element.description.slice(0, 70) : ""} ImageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name}/>
               </div>
             })}
           </div>
